@@ -19,7 +19,7 @@ if (isNaN(lowerLimit) || isNaN(upperLimit) ) {
     `;
 }else {
     // 4. Convert the input to a number 
-    // Note: Used the uniary plus operator to convert input to numbers on input capture (see step 2)
+    // Note: Used the unary plus operator to convert input to numbers on input capture (see step 2)
     
       // 5. Use Math.random() and the user's number to generate a random number
       //highNumber - lowNumber + 1, which represents the range of numbers you want. For example, if you wanted a number between 10 and 15, (15 - 10 + 1) gives you 6, which is how many numbers to choose from (10, 11, 12, 13, 14 and 15).
