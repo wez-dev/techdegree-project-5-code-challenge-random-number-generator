@@ -10,14 +10,8 @@ const upperLimit = +prompt(`
 What's the maximum random number we should generate?
 `);
 
-// 3. Check input -- if NaN return error message.
-if (isNaN(lowerLimit) ) {
-    main.innerHTML = `
-    <h1>Random Number Roller</h1>
-    <p> Ouch!</p>
-    <p>We only roll numbers - refresh the page to try again!</p>
-    `;
-}else if (isNaN(upperLimit)) {
+// 3. Check input -- if either or are NaN return error message.
+if (isNaN(lowerLimit) || isNaN(upperLimit) ) {
     main.innerHTML = `
     <h1>Random Number Roller</h1>
     <p> Ouch!</p>
@@ -28,9 +22,8 @@ if (isNaN(lowerLimit) ) {
     // Note: Used the uniary plus operator to convert input to numbers on input capture (see step 2)
     
       // 5. Use Math.random() and the user's number to generate a random number
-    // multiply random [range between 0 - <1], then increment by the lowerlimit to ensure no result is below the lower limit 
-    const randomNumber = Math.floor(Math.random() * upperLimit) + lowerLimit;
-    
+      //highNumber - lowNumber + 1, which represents the range of numbers you want. For example, if you wanted a number between 10 and 15, (15 - 10 + 1) gives you 6, which is how many numbers to choose from (10, 11, 12, 13, 14 and 15).
+  const randomNumber = Math.floor(Math.random() * (upperLimit - lowerLimit + 1) ) + lowerLimit;
     // 4. Create a message displaying the random number
     main.innerHTML = `
     <h1>Random Number Roller</h1>
