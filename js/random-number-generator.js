@@ -15,9 +15,16 @@ if (isNaN(lowerLimit) || isNaN(upperLimit) ) {
     main.innerHTML = `
     <h1>Random Number Roller</h1>
     <p> Ouch!</p>
-    <p>We only roll numbers - refresh the page to try again!</p>
+    <p>We only roll numbers - refresh the page to try again.</p>
     `;
-}else {
+}else if (upperLimit < lowerLimit) {
+    main.innerHTML = `
+    <h1>Random Number Roller</h1>
+    <p> Ouch!</p>
+    <p>The lower limit cannot be higher than the upper limit - refresh the page to and try again.</p>
+    `;
+
+} else {
     // 4. Convert the input to a number 
     // Note: Used the unary plus operator to convert input to numbers on input capture (see step 2)
     
