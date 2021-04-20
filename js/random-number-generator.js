@@ -9,11 +9,14 @@ function getRandomNumberLimits(){
 
 
     // Note: Used the unary plus operator to convert "3" to 3 (string to number) on input capture 
+    // +unary converts blank to 0, meaning randomNumberGen param default not applied when called from this function
+
     const lowerLimit = +prompt(`
     Which number should we start generating random numbers from?
     `);
 
     // Note: Used the unary plus operator to convert "3" to 3 (string to number) on input capture 
+    // +unary converts blank to 0, meaning randomNumberGen param default not applied when called from this function
     const upperLimit = +prompt(`
     What's the maximum random number we should generate?
     `);
@@ -31,23 +34,25 @@ function getRandomNumberLimits(){
  * @const {string} main           - Access document HTML
  * @const {number} randomNumber - Random number within user defined limits
  */
-function randomNumberGen(lower, upper){
+function randomNumberGen(lower = 0, upper = 100){
     
     const main = document.querySelector('main');
 
     // Validate user input -- if either or are NaN return error message.
-    if (isNaN(lower = 0) || isNaN(upper = 100) ) {
+    if (isNaN(lower) || isNaN(upper) ) {
         main.innerHTML = `
         <h1>Random Number Roller</h1>
         <p> Ouch!</p>
         <p>We only roll numbers - refresh the page to try again.</p>
         `;
+        throw Error('Both arguments must be numbers');
     }else if (upper < lower) {
         main.innerHTML = `
         <h1>Random Number Roller</h1>
         <p> Ouch!</p>
         <p>The lower limit cannot be higher than the upper limit - refresh the page to and try again.</p>
         `;
+        throw Error('The lower limit cannot be higher than the upper limit');
     } else {
         /* Use Math.random() and the user's lower and higher limitts to generate a random number
         * highNumber - lowNumber + 1, which represents the range of numbers you want. 
