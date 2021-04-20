@@ -36,7 +36,7 @@ function randomNumberGen(lower, upper){
     const main = document.querySelector('main');
 
     // Validate user input -- if either or are NaN return error message.
-    if (isNaN(lower) || isNaN(upper) ) {
+    if (isNaN(lower = 0) || isNaN(upper = 100) ) {
         main.innerHTML = `
         <h1>Random Number Roller</h1>
         <p> Ouch!</p>
