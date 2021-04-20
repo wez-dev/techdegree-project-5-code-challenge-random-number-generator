@@ -1,20 +1,17 @@
 /**
- * Access document HTML
- * @type {string}
+ * @const {string} main - Access document html
  */
 const main = document.querySelector('main');
 
 /**
- * User define lower range limit for random number generator
- * @type {string}
+ * @const {string} lowerLimit - User define lower range limit for random number generator
  */
-let lowerLimit = +prompt(`
+const lowerLimit = +prompt(`
 Which number should we start generating random numbers from?
 `);
 
 /**
- * User define higher range limit for random number generator
- * @type {string}
+ * @const {string} upperLimit - User define upper range limit for random number generator
  */
 const upperLimit = +prompt(`
 What's the maximum random number we should generate?
@@ -22,6 +19,7 @@ What's the maximum random number we should generate?
 
 
 // Validate user input -- if either or are NaN return error message.
+
 if (isNaN(lowerLimit) || isNaN(upperLimit) ) {
     main.innerHTML = `
     <h1>Random Number Roller</h1>
@@ -42,7 +40,7 @@ if (isNaN(lowerLimit) || isNaN(upperLimit) ) {
      * highNumber - lowNumber + 1, which represents the range of numbers you want. 
      * For example, if you wanted a number between 10 and 15, (15 - 10 + 1) gives you 6,
      * which is how many numbers to choose from (10, 11, 12, 13, 14 and 15).
-     * @type {number}
+    * @const {string} randomNumber - The random number to return
      */
     const randomNumber = Math.floor(Math.random() * (upperLimit - lowerLimit + 1) ) + lowerLimit;
     // Create a message displaying the random number
